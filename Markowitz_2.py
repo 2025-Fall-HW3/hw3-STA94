@@ -73,7 +73,7 @@ class MyPortfolio:
         for date in range(len(self.price.index)):
             if (date - self.lookback)% self.lookback == 0 and date >= self.lookback:
                 weights = pd.Series(0.0, index=self.price.columns)
-                end_loc = date # Current rebalance day index
+                end_loc = date
                 start_loc = end_loc - self.lookback
             
                 lookback_data = self.returns.iloc[start_loc:end_loc, assets.get_indexer(assets)+1]
